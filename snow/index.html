@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh" xml:lang="zh" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>snow</title>
+	<style type="text/css">
+html {
+	overflow:auto
+}
+a,body {
+	font-family:"Segoe UI",Segoe,Tahoma,Arial,Verdana,sans-serif;
+	font-size:small;
+	text-decoration:none
+}
+a:hover {
+	text-decoration:underline
+}
+ul {
+	padding:0
+}
+html,body,#hp_table,#hp_cellCenter {
+	height:100%;
+	width:100%;
+	border-collapse:collapse;
+	margin:0;
+	padding:0;
+	background-color:#333;
+	border:0
+}
+
+#snow_ctnr {
+	height:100%;
+	width:100%;
+	top:0;
+	left:0;
+	position:absolute;
+	overflow:hidden;
+	opacity:0;
+	visibility:hidden
+}
+.snow_dom_slice {
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:600px
+}
+.snow_fall {
+	-webkit-transform-origin:0% 0%;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-iteration-count:infinite;
+	transform-origin:0% 0%;
+	animation-timing-function:linear;
+	animation-iteration-count:infinite
+}
+.snow_01 {
+	-webkit-animation-delay:0s;
+	animation-delay:0s;
+	-webkit-animation-duration:50s;
+	animation-duration:50s;
+	height:100%;
+	-webkit-animation-name:snow_falling_fore;
+	animation-name:snow_falling_fore;
+	top:-100%
+}
+.snow_02 {
+	-webkit-animation-delay:25s;
+	animation-delay:25s;
+	-webkit-animation-duration:50s;
+	animation-duration:50s;
+	-webkit-animation-name:snow_falling_fore;
+	animation-name:snow_falling_fore;
+	top:-100%;
+	height:100%
+}
+.snow_03 {
+	-webkit-animation-delay:0s;
+	-webkit-animation-duration:70s;
+	animation-delay:0s;
+	animation-duration:70s;
+	opacity:.5;
+	-webkit-animation-name:snow_falling_mid;
+	animation-name:snow_falling_mid;
+	top:-100%;
+	height:100%
+}
+.snow_04 {
+	-webkit-animation-delay:35s;
+	-webkit-animation-duration:70s;
+	animation-delay:35s;
+	animation-duration:70s;
+	opacity:.5;
+	-webkit-animation-name:snow_falling_mid;
+	animation-name:snow_falling_mid;
+	top:-100%;
+	height:100%
+}
+.snow_drifter {
+	width:100%;
+	height:100%;
+	background-repeat:repeat
+}
+.drift_01 {
+	background-position:10% 20%
+}
+.drift_02 {
+	background-position:40% 60%
+}
+.drift_03 {
+	background-position:90% 10%
+}
+.drift_04 {
+	background-position:50% 15%
+}
+@-webkit-keyframes snow_falling_fore {
+	0% {
+	top:-100%;
+	opacity:0
+}
+1% {
+	top:-100%;
+	opacity:1
+}
+99.8% {
+	top:100%;
+	opacity:1
+}
+99.9% {
+	opacity:0
+}
+100% {
+	top:-100%;
+	opacity:0
+}
+}@keyframes snow_falling_fore {
+	0% {
+	top:-100%;
+	opacity:0
+}
+1% {
+	top:-100%;
+	opacity:1
+}
+99.8% {
+	top:100%;
+	opacity:1
+}
+99.9% {
+	opacity:0
+}
+100% {
+	top:-100%;
+	opacity:0
+}
+}@-webkit-keyframes snow_falling_mid {
+	0% {
+	top:-100%;
+	opacity:0
+}
+1% {
+	top:-100%;
+	opacity:1
+}
+99.8% {
+	top:100%;
+	opacity:1
+}
+99.9% {
+	opacity:0
+}
+100% {
+	top:-100%;
+	opacity:0
+}
+}@keyframes snow_falling_mid {
+	0% {
+	top:-100%;
+	opacity:0
+}
+1% {
+	top:-100%;
+	opacity:1
+}
+99.8% {
+	top:100%;
+	opacity:1
+}
+99.9% {
+	opacity:0
+}
+100% {
+	top:-100%;
+	opacity:0
+}
+}
+.snow_drifter {
+	background-image:url(snow.png);
+}
+</style>
+	</head>
+	<body>
+		<div id="bgDiv" style="width: 100%; height:100%; top: -206px; left: 0px; background-image: url(background.jpg); background-size: 100% auto; background-position: center; opacity: 1;"></div>
+		<div id="snow_ctnr" class="fader" style="visibility: visible; opacity: 1;">
+			<div class="snow_dom_slice snow_fall snow_01">
+				<div class="snow_drifter drift_01"></div>
+			</div>
+			<div class="snow_dom_slice snow_fall snow_02">
+				<div class="snow_drifter drift_02"></div>
+			</div>
+			<div class="snow_dom_slice snow_fall snow_03">
+				<div class="snow_drifter drift_03"></div>
+			</div>
+			<div class="snow_dom_slice snow_fall snow_04">
+				<div class="snow_drifter drift_04"></div>
+			</div>
+		</div>
+	</body>
+</html>
