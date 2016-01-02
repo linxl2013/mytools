@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>代码高亮插件</title>
+	<link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+<body>
+    <div class="main">
+        使用方法，加载js和css文件，加入下面代码，插件会自动获取页面class为prettyprint的pre，生成样式。
+        <pre class="prettyprint lang-js">
+/* CodeBrusher by yumena.me */
+/* Version 0.1.3 */
+/*<![CDATA[*/
+CodeBrusher({
+    class: 'prettyprint',
+    php: 'lang-php',
+    javascript: 'lang-js',
+    csharp: 'lang-cs',
+    vb: 'lang-vb',
+    ruby: 'lang-rb',
+    xml: 'lang-xml',
+});
+/*]]>*/</pre>
+        下面是js的样式示例
+        <pre class="prettyprint lang-js">cb.CodeBrusher.Phrase = function(index, length, classname){
+   this.index = index;
+   this.length = length;
+   this.class = classname;
+}
+//this.Phrases[this.Phrases.length] = new cb.CodeBrusher.Phrase(index, length, Class);</pre>
+
+       <pre class="prettyprint lang-js">this.code = this.originalCode;
+
+for(i=0;i&lt;this.Phrases.length;i++){
+    var Phrase = this.Phrases[i];
+    if(Phrase.index &gt;= pos &amp;&amp; Phrase.length &gt; 0){
+        colorCode += this.code.substr(pos, Phrase.index-pos);
+        var value = this.code.substr(Phrase.index, Phrase.length);
+        colorCode += prvePhrase = "&lt;span class='"+Phrase.class+"'&gt;" + value + "&lt;/span&gt;";
+        pos = Phrase.index + Phrase.length;
+    }
+}
+colorCode += this.code.substr(pos);</pre>
+    <br/>
+    下面是php的样式示例
+    <pre class="prettyprint lang-php">
+echo "hello world";
+
+function test($arr){
+    foreach($arr as $k=>$v){
+        echo "key is " . $k;
+        echo "value is " . $v;
+    }
+}
+
+test(array("a"=>"a1", "b"=>"b1"));</pre>
+    <br/>
+    下面是C#的样式示例
+    <pre class="prettyprint lang-cs">
+public class test
+{
+    private string say()
+    {
+        return "hello world";
+    }
+}
+
+var t = new test();
+print(t.say());</pre>
+    <br/>
+    下面是CSS的样式示例
+    <pre class="prettyprint lang-css">
+body{
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-family: "Microsoft Yahei", Helvetica, sans-serif;
+    color: #333;
+    line-height: 20px;
+}
+.main{
+    margin: 20px;
+    width: 700px;
+}</pre>
+</div>
+
+<script type="text/javascript"  src="codebrusher.js"></script>
+<script type="text/javascript">
+    /*<![CDATA[*/
+    CodeBrusher({
+      class: 'prettyprint',
+      php: 'lang-php',
+      javascript: 'lang-js',
+      csharp: 'lang-cs',
+      vb: 'lang-vb',
+      ruby: 'lang-rb',
+      xml: 'lang-xml',
+  });
+    /*]]>*/
+</script>
+</body>
+</html>
