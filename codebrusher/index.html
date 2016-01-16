@@ -83,6 +83,24 @@ body{
     margin: 20px;
     width: 700px;
 }</pre>
+    <br/>
+    下面是Python的样式示例
+    <pre class="prettyprint lang-py">
+import Project
+import Projectresponsible
+
+class project_edit(View):
+
+    # 编辑项目页面
+    @authenticated
+    def get(self, request, id):
+        p = Project.objects.get(id=id, user=user)
+        dic = p.get_dic()
+
+        total, rows = Projectresponsible.objects.account_list(id)
+        responsibles = []
+        for v in rows:
+            responsibles.append(v['account'])</pre>
 </div>
 
 <script type="text/javascript"  src="codebrusher.js"></script>
@@ -96,6 +114,7 @@ body{
       vb: 'lang-vb',
       ruby: 'lang-rb',
       xml: 'lang-xml',
+      python: 'lang-py',
   });
     /*]]>*/
 </script>

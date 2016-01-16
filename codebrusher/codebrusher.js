@@ -117,6 +117,25 @@ var cb = {
 			},
 			Keyword:{}
 		},
+		python:{
+			Special:{
+				string:{Exp:/\'\'\'[\s\S]*?\'\'\'/g,Class:'code_str'},
+				string2:{Exp:/"([^"]*?)"/g,Class:'code_str'},
+				string3:{Exp:/'([^']*?)'/g,Class:'code_str'},
+				Note:{Exp:/(\#.*)$/gm,Class:"code_note"},
+				Regular:{Exp:/(\/(?:[^\n])*?\/[igm]{0,3})/g,Class:"code_purple"},
+				Extend:{Exp:/class\s+[A-Za-z0-9_]+\s*\(([\s]||[\s\S]+?)\)/g,Index:1,Class:"code_green"},
+				Extend2:{Exp:/\@[A-Za-z0-9_]+/g,Class:'code_green'},
+				FunName:{Exp:/def\s+([A-Za-z0-9_]+)\s*\(?/g,Index:1,Class:'code_green'},
+				FunName2:{Exp:/def\s*\(([\s]||[\s\S]+?)\)/g,Index:1,Class:'code_yellow'},
+				Sign:{Exp:/(===|!==|==|!=|=|!|\&\&|\|\||\&gt\;|\&gt\;=|\&lt\;=|-\&gt\;|=\&gt\;|\&lt\;|\+|\-|\*|\/)/g,Class:'code_pink'},
+			},
+			Keyword:{
+				blue:{Str:'class def lambda',Class:'code_blue'},
+				purple:{Str:'False True None',Class:'code_purple'},
+				pink:{Str:'finally is return continue for from nonlocal while and del global not with as elif if or yield assert else import pass break except in raise try',Class:'code_pink'},
+			}
+		},
 	}
 }
 cb.language.java = cb.language.javascript;
@@ -247,6 +266,7 @@ cb.CodeBrusher.defaults = {
 	vb: 'vb',
 	ruby: 'ruby',
 	xml: 'xml',
+	python: 'python',
 }
 	
 cb.CodeBrusher.init = function(options){
